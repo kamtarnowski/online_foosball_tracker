@@ -24,8 +24,12 @@ gem "autoprefixer-rails"
 gem 'simple_form'
 gem 'gritter'
 gem 'paperclip'
-gem 'aws-sdk', '~> 2'
+gem 'aws-sdk', '< 2.0'
 gem 'foreman'
+gem 'blueimp-gallery'
+gem "font-awesome-rails"
+gem 'kaminari'
+gem 'bootstrap-kaminari-views'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc, require: false

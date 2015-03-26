@@ -5,13 +5,16 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
 
+<div class="container">
 <%= yield %>
+</div>
 
 <% flash.each do |key, value| %>
-<%= js add_gritter(value, flash[:key], image: key, nodom: wrap ) %>
+<%= js add_gritter(value, flash[:key], image: key, nodom_wrap: true ) %>
 <% end %>
 
 </body>

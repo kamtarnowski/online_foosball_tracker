@@ -14,5 +14,6 @@
 //= require jquery_ujs
 //= require jquery
 //= require gritter
+//= require blueimp-gallery-all
 //= require bootstrap-sprockets
 //= require_tree .

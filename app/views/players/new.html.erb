@@ -1,0 +1,16 @@
+<div class="jumbotron"><h1>NEW PLAYER</h1></div>
+
+<div class="row">
+  <div class="col-md-6 col-xs-10 col-xs-offset-1">
+    <%= simple_form_for @player, multipart: false do |f| %>
+
+        <%= f.input :last_name %>
+        <%= f.input :first_name %>
+        <%= f.input :avatar, as: :file %>
+
+        <%= f.button :submit, 'Submit' %>
+    <% end %>
+    <br>
+    <p><%= link_to 'Back', players_path %></p>
+  </div>
+</div>

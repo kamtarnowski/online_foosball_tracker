@@ -1,7 +1,7 @@
 class Player < ActiveRecord::Base
   has_many :match_results
   has_attached_file :avatar, styles: {
-      thumb: '100x100>',
+      thumb: '50x50>',
       square: '200x200#',
       medium: '300x300>',
       large: '500x500'

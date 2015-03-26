@@ -1,0 +1,22 @@
+<div class="jumbotron"><h1>PLAYERS LIST</h1></div>
+
+<%= render 'shared/blueimp' %>
+
+<%= paginate @players, :theme => 'twitter-bootstrap', :pagination_class => "pagination-small pagination-centered", :window => 2 %>
+
+<%= render 'players/players_listing' %>
+
+<%= paginate @players, :theme => 'twitter-bootstrap', :pagination_class => "pagination-small pagination-centered", :window => 2 %>
+
+<%= link_to 'Create a New Player', new_player_path, class: 'btn btn-large btn-primary', style: 'margin-bottom: 20px' %>
+
+<script>
+    $(".links table tr td:first-child a").onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {index: link, event: event},
+                links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+</script>
