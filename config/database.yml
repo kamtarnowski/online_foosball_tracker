@@ -26,13 +26,13 @@ default: &default
 development:
   <<: *default
   database: online_foosball_tracker_development
-  username: username
+  username: postgres
   password: password
 
 test:
   <<: *default
   database: online_foosball_tracker_test
-  username: username
+  username: postgres
   password: password
 
 production:
