@@ -23,6 +23,9 @@ gem 'bootstrap-sass'
 gem "autoprefixer-rails"
 gem 'simple_form'
 gem 'gritter'
+gem 'paperclip'
+gem 'aws-sdk', '~> 2'
+gem 'foreman'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc, require: false
