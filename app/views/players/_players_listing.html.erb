@@ -8,14 +8,14 @@
   </tr>
   <% @players.each do |player| %>
       <tr>
-        <td><%= player.last_name %></td>
-        <td><%= player.first_name %></td>
+        <td><em><%= player.last_name %></em></td>
+        <td><em><%= player.first_name %></em></td>
         <td style="text-align: center"><%= link_to '<i class="fa fa-user fa-2x"></i>'.html_safe, player_path(player) %></td>
         <td style="text-align: center"><%= link_to '<i class="fa fa-pencil-square-o fa-2x"></i>'.html_safe, edit_player_path(player) %></td>
         <td style="text-align: center">
           <div class="links">
             <a href="<%= player.avatar.url %>" title="Player <%= player.last_name %> <%= player.first_name %>" data-gallery>
-              <img src=" <%= player.avatar.url(:thumb) %> " alt="Player <%= player.last_name %> <%= player.first_name %>" class="img-circle">
+              <img src=" <%= player.avatar.url(:thumb) %> " alt="Player <%= player.last_name %> <%= player.first_name %>" class="img-rounded">
             </a>
           </div>
         </td>

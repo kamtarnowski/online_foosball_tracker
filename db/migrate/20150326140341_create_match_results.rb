@@ -1,9 +1,9 @@
 class CreateMatchResults < ActiveRecord::Migration
   def change
     create_table :match_results do |t|
-      t.integer :winner
-      t.integer :loser
-      t.integer :points
+      t.integer :winner, index: true
+      t.integer :loser, index: true
+      t.integer :points, index: true
       t.references :player, index: true
       t.references :match, index: true
 

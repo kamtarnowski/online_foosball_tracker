@@ -1,0 +1,14 @@
+<div class="jumbotron"><h1>PLAYER'S PROFILE</h1></div>
+
+<div class="row" style="text-align: center; padding-top: 20px">
+  <div class="col-sm-push-6 col-sm-6">
+    <%= image_tag @player.avatar.url(:medium), class: 'img-circle', alt: "#{@player.name} Avatar" %>
+        </div>
+  <div class="col-sm-pull-6 col-sm-6">
+    <div style="padding-top: 50px">
+      <h2 style='font-family: Georgia, serif;'><em><%= @player.name %></em></h2>
+    </div>
+  </div>
+</div>
+
+<%= render 'shared/back_button' %>

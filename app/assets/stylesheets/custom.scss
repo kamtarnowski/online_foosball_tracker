@@ -1,13 +1,16 @@
 body {
-  background-image: url(https://s3.eu-central-1.amazonaws.com/onlinefoosballtracker/layout/Bubbles.jpg);
+  background-image: url(https://s3.eu-central-1.amazonaws.com/onlinefoosballtracker/layout/football.jpg);
   background-repeat: repeat;
 }
 
 .container {
-  background-color: white;
-  border-radius: 5px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
+  background-color: rgba(white, 0.9);
+  border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0 0 5px 5px;
+  -moz-border-radius: 0 0 5px 5px;
+  border-left: #337ab7 2px solid;
+  border-right: #337ab7 2px solid;
+  border-bottom: #337ab7 2px solid;
 }
 
 .jumbotron {
@@ -16,4 +19,22 @@ body {
 
 .pagination > li.page.gap.disabled {
   display: none;
+}
+
+#match_second_player {
+  display: none;
+}
+
+#back_button {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+  padding: 20px;
+  background-color: rgba(white, 0.6);
+  border-radius: 50%;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  &:hover {
+    background-color: rgba(white, 0.8);
+  }
 }

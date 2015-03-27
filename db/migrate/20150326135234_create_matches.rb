@@ -1,8 +1,8 @@
 class CreateMatches < ActiveRecord::Migration
   def change
     create_table :matches do |t|
-      t.string :first_player, array: true
-      t.string :second_player, array: true
+      t.integer :first_player, index: true
+      t.integer :second_player, index: true
 
       t.timestamps null: false
     end

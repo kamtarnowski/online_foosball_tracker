@@ -1,4 +1,5 @@
 class PlayersController < ApplicationController
+
   def index
     @players = Player.order(:created_at => :desc).page(params[:page]).per(20)
   end
@@ -9,32 +10,51 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    if @player.save
-      flash[:success] = 'Player created.'
-      redirect_to @player
-    else
-      flash.now[:error] = 'Problem with creating the Player.'
+    if name_exist?(params[:player][:last_name], params[:player][:first_name])
+      flash.now[:error] = "Player with name #{params[:player][:last_name]} #{params[:player][:first_name]} already exists."
       render :new
+    else
+      if @player.save
+        flash[:success] = 'Player created.'
+        redirect_to @player
+      else
+        flash.now[:error] = 'Problem with creating the Player.'
+        render :new
+      end
     end
   end
 
   def edit
-    @player = Player.find(params[:id])
+    @player = Player.friendly.find(params[:id])
   end
 
   def update
-    @player = Player.find(params[:id])
-    if @player.update(player_params)
-      flash[:success] = 'Player successfully updated.'
-      redirect_to @player
+    @player = Player.friendly.find(params[:id])
+    if name_exist?(params[:player][:last_name], params[:player][:first_name])
+      flash.now[:error] = "Player with name #{params[:player][:last_name]} #{params[:player][:first_name]} already exists."
+      render :new
     else
-      flash.now[:error] = 'Problem with updating Player.'
-      render :edit
+      if @player.update(player_params)
+        flash[:success] = 'Player successfully updated.'
+        redirect_to @player
+      else
+        flash.now[:error] = 'Problem with updating Player.'
+        render :edit
+      end
     end
   end
 
   def show
-    @player = Player.find(params[:id])
+    @player = Player.friendly.find(params[:id])
+  end
+
+  def name_exist?(last, first)
+    name = "#{last} #{first}"
+    if Player.where(name: name).present?
+      true
+    else
+      false
+    end
   end
 
   private
