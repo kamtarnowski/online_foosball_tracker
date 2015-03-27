@@ -12,7 +12,7 @@ class MatchesController < ApplicationController
       redirect_to match_results_path
     else
       flash.now[:error] = "NO"
-      render :new
+      render 'new'
     end
   end
 

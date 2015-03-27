@@ -9,6 +9,6 @@ Rails.application.routes.draw do
 
   get 'matches/create'
 
-  post 'matches' => 'matches#new'
+  post 'matches' => 'matches#create'
 
 end

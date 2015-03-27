@@ -6,7 +6,7 @@
 
     <% if params[:selected].blank? %>
             <%= f.input :first_player, collection: @players, label_method: :name, value_method: :id, include_blank: true, label: "First Player:", input_html: { onchange: "if(this.value){window.location='?selected='+this.value;}" } %>
-            <%= f.input :second_player, collection: @players, label_method: :name, value_method: :id, include_blank: false, label: "Second Player:" %>
+            <%= f.input :second_player, collection: @players, label_method: :name, value_method: :id, include_blank: true, label: "Second Player:" %>
     <% else %>
             <%= f.input :first_player, collection: @players, label_method: :name, value_method: :id, include_blank: false, label: "First Player:", selected: params[:selected], input_html: { onchange: "if(this.value){window.location='?selected='+this.value;}" } %>
             <%= f.input :second_player, collection: @players_not_all, label_method: :name, value_method: :id, include_blank: false, label: "Second Player:" %>

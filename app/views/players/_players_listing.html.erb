@@ -8,8 +8,8 @@
   </tr>
   <% @players.each do |player| %>
       <tr>
-        <td><em><%= player.last_name %></em></td>
-        <td><em><%= player.first_name %></em></td>
+        <td><h4><em><%= player.last_name %></em></h4></td>
+        <td><h4><em><%= player.first_name %></em></h4></td>
         <td style="text-align: center"><%= link_to '<i class="fa fa-user fa-2x"></i>'.html_safe, player_path(player) %></td>
         <td style="text-align: center"><%= link_to '<i class="fa fa-pencil-square-o fa-2x"></i>'.html_safe, edit_player_path(player) %></td>
         <td style="text-align: center">
