@@ -6,6 +6,11 @@
 
     <%= f.input :last_name %>
     <%= f.input :first_name %>
+
+    <% if @player.errors.full_messages_for(:name).present? %>
+        <p style="color: red">Name <%= @player.last_name %> <%= @player.first_name %> is already occupied. Please choose another.</p>
+    <% end %>
+
     <%= f.input :avatar, as: :file %>
 
     <%= f.button :submit, 'Submit' %>

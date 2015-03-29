@@ -10,18 +10,13 @@ class PlayersController < ApplicationController
 
   def create
     @player = Player.new(player_params)
-    if name_exist?(params[:player][:last_name], params[:player][:first_name])
-      flash.now[:error] = "Player with name #{params[:player][:last_name]} #{params[:player][:first_name]} already exists."
-      render :new
-    else
       if @player.save
         flash[:success] = 'Player created.'
         redirect_to @player
       else
-        flash.now[:error] = 'Problem with creating the Player.'
+        flash.now[:error] = "Problem with creating the Player."
         render :new
       end
-    end
   end
 
   def edit
@@ -30,17 +25,12 @@ class PlayersController < ApplicationController
 
   def update
     @player = Player.friendly.find(params[:id])
-    if name_exist?(params[:player][:last_name], params[:player][:first_name])
-      flash.now[:error] = "Player with name #{params[:player][:last_name]} #{params[:player][:first_name]} already exists."
-      render :new
+    if @player.update(player_params)
+      flash[:success] = 'Player successfully updated.'
+      redirect_to @player
     else
-      if @player.update(player_params)
-        flash[:success] = 'Player successfully updated.'
-        redirect_to @player
-      else
-        flash.now[:error] = 'Problem with updating Player.'
-        render :edit
-      end
+      flash.now[:error] = "Problem with updating the Player."
+      render :new
     end
   end
 

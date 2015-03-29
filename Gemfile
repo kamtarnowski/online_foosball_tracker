@@ -31,6 +31,7 @@ gem "font-awesome-rails"
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'friendly_id'
+gem 'faker'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc, require: false
@@ -55,6 +56,9 @@ group :development, :test do
   gem 'spring'
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'dotenv-rails'
+  gem "rack-test"
+  gem 'capybara'
 end
 
 gem "better_errors", group: :development

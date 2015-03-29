@@ -1,9 +1,7 @@
 FactoryGirl.define do
   factory :player do
-    last_name "MyString"
-first_name "MyString"
-place "9.99"
-chances "9.99"
+    last_name Faker::Name.last_name
+    first_name Faker::Name.first_name
+    avatar Rack::Test::UploadedFile.new(Rails.root+'spec/support/football.jpg', 'image/jpg')
   end
-
 end

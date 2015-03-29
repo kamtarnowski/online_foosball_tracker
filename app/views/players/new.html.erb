@@ -2,10 +2,15 @@
 
 <div class="row">
   <div class="col-md-6 col-xs-10 col-xs-offset-1">
-    <%= simple_form_for @player, multipart: false do |f| %>
+    <%= simple_form_for @player do |f| %>
 
         <%= f.input :last_name %>
         <%= f.input :first_name %>
+
+        <% if @player.errors.full_messages_for(:name).present? %>
+            <p style="color: red">Name <%= @player.last_name %> <%= @player.first_name %> is already occupied. Please choose another.</p>
+        <% end %>
+
         <%= f.input :avatar, as: :file %>
 
         <%= f.button :submit, 'Submit' %>

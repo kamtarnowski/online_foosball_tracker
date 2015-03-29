@@ -8,10 +8,10 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     if @match.save
-      flash[:success] = 'YES'
+      flash[:success] = 'Match result.'
       redirect_to match_results_path
     else
-      flash.now[:error] = "NO"
+      flash.now[:error] = "Can't start the Match."
       render 'new'
     end
   end
