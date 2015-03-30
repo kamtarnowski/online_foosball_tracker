@@ -1,0 +1,29 @@
+<table class="table table-responsive table-hover table-bordered">
+  <tr>
+    <th>Rank</th>
+    <th>Name</th>
+    <th>Score</th>
+    <th>Wins</th>
+    <th>Defeats</th>
+    <th>Avatar</th>
+  </tr>
+  <% @players.each do |player| %>
+      <tr>
+        <td><h4><%= player.place %>.</h4></td>
+        <td><h4><em><%= link_to player.name, player_path(player) %></em></h4></td>
+        <td><h4><%= player.score %></h4></td>
+        <td><h4><%= player.match_results.where(:winner => player.id).count %></h4></td>
+        <td><h4><%= player.match_results.where(:loser => player.id).count %></h4></td>
+        <td style="text-align: center">
+          <div class="links">
+            <a href="<%= player.avatar.url %>" title="Player <%= player.last_name %> <%= player.first_name %>" data-gallery>
+              <img src=" <%= player.avatar.url(:thumb) %> " alt="Player <%= player.last_name %> <%= player.first_name %>" class="img-rounded">
+            </a>
+          </div>
+        </td>
+  <% end %>
+   </tr>
+</table>
+
+<%= link_to 'Create a New Match <i class="fa fa-futbol-o"></i>'.html_safe, matches_new_path, class: "btn btn-primary", style: "margin-bottom: 20px" if Player.count >= 2 %>
+<%= link_to 'Players list <i class="fa fa-users"></i>'.html_safe, players_path, class: "btn btn-primary", style: "margin-bottom: 20px; float: right" %>

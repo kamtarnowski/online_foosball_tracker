@@ -1,0 +1,11 @@
+<div class="col-md-5 col-md-offset-1 col-xs-4 col-xs-offset-2" style="text-align: left; padding-top: 40px">
+  <strong><p>Global rank: <%= @player.place %></p>
+  <p>Player's score: <%= @player.score %></p>
+  <p>Chances to win: <%= @player.chances.round %>%</p>
+</div></strong>
+
+<div class="col-md-5 col-xs-5 col-xs-offset-1" style="text-align: left; padding-top: 40px">
+  <strong><p>Wins: <%= @player.match_results.where(winner: @player.id).count %></p>
+  <p>Defeats: <%= @player.match_results.where(loser: @player.id).count %></p>
+  <p>Average points: <%= (@player.match_results.present?) ? (@player.match_results.select(:points).map(&:points).reduce(:+) / @player.match_results.count ) : ('-') %></p>
+</div></strong>

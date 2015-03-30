@@ -26,17 +26,17 @@ module MatchesHelper
       MatchResult.create(winner: player1.id, loser: player2.id, match_id: match, player_id: player2.id, points: p2_points)
 
       chances = p1_ch / 100
-      point_minus_chance = 1 - chances
+      point_minus_chance = (1 - chances) * 0.5
       score = 0.5 + point_minus_chance
-      player1.update(score: score)
+      player1.update(score: player1.score + score)
     else
       MatchResult.create(winner: player2.id, loser: player1.id, match_id: match, player_id: player1.id, points: p1_points)
       MatchResult.create(winner: player2.id, loser: player1.id, match_id: match, player_id: player2.id, points: p2_points)
 
       chances = p2_ch / 100
-      point_minus_chance = 1 - chances
+      point_minus_chance = (1 - chances) * 0.5
       score = 0.5 + point_minus_chance
-      player2.update(score: score)
+      player2.update(score: player2.score + score)
     end
   end
 end

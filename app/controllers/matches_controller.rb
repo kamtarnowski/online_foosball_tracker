@@ -24,9 +24,6 @@ class MatchesController < ApplicationController
 
   def show
     @match = Match.find(params[:id])
-    # mr = @match.match_results.first
-    # @winner = Player.find(mr.winner)
-    # @loser = Player.find(mr.loser)
   end
 
   private

@@ -5,16 +5,47 @@
     <%= image_tag @player.avatar.url(:medium), class: 'img-circle', alt: "#{@player.name} Avatar" %>
         </div>
   <div class="col-sm-pull-6 col-sm-6">
-    <div class='hidden-lg hidden-md' style="padding-top: 50px">
+    <div class='hidden-lg hidden-md' style="padding-top: 40px">
       <h2 style='font-family: Georgia, serif;'><em><%= @player.name %></em></h2>
-      <%= @player.chances %> oraz <%= @player.score %>
+        <%= render 'players/statics', object: @player %>
     </div>
 
-    <div class='hidden-xs hidden-sm' style="padding-top: 50px; position: relative; left: 80px">
+    <div class='hidden-xs hidden-sm' style="padding-top: 40px; position: relative; left: 80px">
       <h2 style='font-family: Georgia, serif;'><em><%= @player.name %></em></h2>
-      <%= @player.chances %> oraz <%= @player.score %>
+        <%= render 'players/statics', object: @player %>
     </div>
   </div>
 </div>
 
-<%= render 'shared/back_button', object: players_path %>
+<div class="row" style="padding-top: 30px; text-align: center">
+  <div class="col-md-5 col-md-offset-1 col-xs-5 col-xs-offset-1">
+    <h2 class="bg-info">WINS</h2>
+    <div class="row">
+      <% @player.match_results.where(winner: @player.id).each do |win| %>
+        <h4><%= @player.name %> <strong><%= win.points %> : <%= (Match.find(win.match_id).match_results.order(:points)).first.points %></strong> <%= Player.find(win.loser).name %></h4>
+        <h5><%= win.created_at.strftime("%d %b. %Y") %></h5>
+          <hr>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-5 col-xs-5">
+    <h2 class="bg-warning">DEFEATS</h2>
+    <div class="row">
+      <% @player.match_results.where(loser: @player.id).each do |defeat| %>
+          <h4><%= @player.name %> <strong><%= defeat.points %> : <%= Match.find(defeat.match_id).match_results.order(:points).last.points %></strong> <%= Player.find(defeat.winner).name %></h4>
+          <h5><%= defeat.created_at.strftime("%d %b. %Y") %></h5>
+            <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+        <% if request.referer.present? %>
+            <% if URI(request.referer).path == '/classifications/index' %>
+                <%= render 'shared/back_button', object: classifications_index_path %>
+            <% else %>
+                <%= render 'shared/back_button', object: players_path %>
+            <% end %>
+        <% else %>
+            <%= render 'shared/back_button', object: players_path %>
+        <% end %>

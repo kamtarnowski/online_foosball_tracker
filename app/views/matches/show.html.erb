@@ -10,9 +10,9 @@
 </div>
 
        <div class="hidden-xs">
-            <% @match.match_results.each_with_index do |mr, index| %>
+            <% @match.match_results.order(points: :desc).each_with_index do |mr, index| %>
                 <% if index == 0 %>
-                    <div class="row" style="padding-top: 50px; padding-bottom: 30px; text-align: center;">
+                    <div class="row" style="padding-top: 50px; padding-bottom: 10px; text-align: center;">
                         <em><span class="p_name"><%= Player.find(mr.player_id).name %></span></em> <strong><span class="p_points"><%= mr.points %></span></strong>
                       <span class="p_points">:</span>
                 <% else %>
@@ -25,7 +25,7 @@
             <div class="hidden-sm hidden-md hidden-lg">
               <% @match.match_results.each_with_index do |mr, index| %>
                   <% if index == 0 %>
-                      <div class="row" style="padding-top: 50px; padding-bottom: 30px; text-align: center;">
+                      <div class="row" style="padding-top: 50px; padding-bottom: 10px; text-align: center;">
                         <em><span class="p_name_xs"><%= Player.find(mr.player_id).name %></span></em> <strong><span class="p_points_xs"><%= mr.points %></span></strong>
                         <span class="p_points_xs">:</span>
                   <% else %>
@@ -35,8 +35,10 @@
               <% end %>
             </div>
 
+            <div class="row" style="text-align: center; padding-bottom: 20px">
+              <%= @match.created_at.strftime("%d %b. %Y") %>
+            </div>
+
 <div class="row" style="text-align: center; padding-bottom: 30px">
-  <%= link_to 'PLAYERS RANKING', '#', class: 'btn btn-primary btn-large' %>
+  <%= link_to 'PLAYERS RANKING', classifications_index_path, class: 'btn btn-primary btn-large' %>
 </div>
-
-

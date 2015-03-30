@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include PlayersHelper
   include MatchesHelper
+  include ClassificationsHelper
 
   def set_cache_buster
     response.headers["Cache-Control"] = "no-store"
