@@ -5,8 +5,14 @@
     <%= image_tag @player.avatar.url(:medium), class: 'img-circle', alt: "#{@player.name} Avatar" %>
         </div>
   <div class="col-sm-pull-6 col-sm-6">
-    <div style="padding-top: 50px">
+    <div class='hidden-lg hidden-md' style="padding-top: 50px">
       <h2 style='font-family: Georgia, serif;'><em><%= @player.name %></em></h2>
+      <%= @player.chances %> oraz <%= @player.score %>
+    </div>
+
+    <div class='hidden-xs hidden-sm' style="padding-top: 50px; position: relative; left: 80px">
+      <h2 style='font-family: Georgia, serif;'><em><%= @player.name %></em></h2>
+      <%= @player.chances %> oraz <%= @player.score %>
     </div>
   </div>
 </div>

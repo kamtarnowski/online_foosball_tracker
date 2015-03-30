@@ -1,0 +1,42 @@
+<div class="jumbotron"><h1>MATCH RESULT</h1></div>
+
+<div class="row" style="text-align: center">
+    <div class="col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-offset-2 col-xs-3">
+      <%= image_tag 'https://s3.eu-central-1.amazonaws.com/onlinefoosballtracker/layout/thumbs+up_scaled.png', alt: 'Thumbs Up', class: 'img-responsive thumb' %>
+    </div>
+      <div class="col-md-offset-2 col-md-3 col-sm-offset-2 col-sm-3 col-xs-offset-2 col-xs-3">
+        <%= image_tag 'https://s3.eu-central-1.amazonaws.com/onlinefoosballtracker/layout/thumbs+up_scaled_rotated.png', alt: 'Thumbs Down', class: 'img-responsive thumb' %>
+      </div>
+</div>
+
+       <div class="hidden-xs">
+            <% @match.match_results.each_with_index do |mr, index| %>
+                <% if index == 0 %>
+                    <div class="row" style="padding-top: 50px; padding-bottom: 30px; text-align: center;">
+                        <em><span class="p_name"><%= Player.find(mr.player_id).name %></span></em> <strong><span class="p_points"><%= mr.points %></span></strong>
+                      <span class="p_points">:</span>
+                <% else %>
+                          <strong><span class="p_points"><%= mr.points %></span></strong> <em><span class="p_name"><%= Player.find(mr.player_id).name %></span></em>
+                    </div>
+                <% end %>
+            <% end %>
+       </div>
+
+            <div class="hidden-sm hidden-md hidden-lg">
+              <% @match.match_results.each_with_index do |mr, index| %>
+                  <% if index == 0 %>
+                      <div class="row" style="padding-top: 50px; padding-bottom: 30px; text-align: center;">
+                        <em><span class="p_name_xs"><%= Player.find(mr.player_id).name %></span></em> <strong><span class="p_points_xs"><%= mr.points %></span></strong>
+                        <span class="p_points_xs">:</span>
+                  <% else %>
+                      <strong><span class="p_points_xs"><%= mr.points %></span></strong> <em><span class="p_name_xs"><%= Player.find(mr.player_id).name %></span></em>
+                      </div>
+                  <% end %>
+              <% end %>
+            </div>
+
+<div class="row" style="text-align: center; padding-bottom: 30px">
+  <%= link_to 'PLAYERS RANKING', '#', class: 'btn btn-primary btn-large' %>
+</div>
+
+

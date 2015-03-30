@@ -16,7 +16,6 @@ class Player < ActiveRecord::Base
   validates :name, uniqueness: true
 
   def create_name
-    # self.update(name: "#{last_name} #{first_name}")
     self.name="#{last_name} #{first_name}"
   end
 end

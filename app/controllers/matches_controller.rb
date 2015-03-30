@@ -8,12 +8,25 @@ class MatchesController < ApplicationController
   def create
     @match = Match.new(match_params)
     if @match.save
+      player1 = Player.find(@match.first_player)
+      player2 = Player.find(@match.second_player)
+      chances_to_win(player1)
+      chances_to_win(player2)
+      who_is_the_winner?(player1, player2, @match.id)
+
       flash[:success] = 'Match result.'
-      redirect_to match_results_path
+      redirect_to show_match_path(@match)
     else
       flash.now[:error] = "Can't start the Match."
       render 'new'
     end
+  end
+
+  def show
+    @match = Match.find(params[:id])
+    # mr = @match.match_results.first
+    # @winner = Player.find(mr.winner)
+    # @loser = Player.find(mr.loser)
   end
 
   private

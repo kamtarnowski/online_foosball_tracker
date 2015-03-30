@@ -59,10 +59,11 @@ ActiveRecord::Schema.define(version: 20150327041712) do
     t.string   "last_name"
     t.string   "first_name"
     t.string   "name"
-    t.decimal  "place"
+    t.integer  "place"
+    t.decimal  "score",               default: 0.0
     t.decimal  "chances"
-    t.datetime "created_at",          null: false
-    t.datetime "updated_at",          null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "avatar_file_name"
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150327041712) do
   add_index "players", ["chances"], name: "index_players_on_chances", using: :btree
   add_index "players", ["name"], name: "index_players_on_name", using: :btree
   add_index "players", ["place"], name: "index_players_on_place", using: :btree
+  add_index "players", ["score"], name: "index_players_on_score", using: :btree
   add_index "players", ["slug"], name: "index_players_on_slug", unique: true, using: :btree
 
   add_foreign_key "match_results", "matches"

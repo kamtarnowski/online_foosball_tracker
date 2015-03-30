@@ -32,6 +32,7 @@ gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'friendly_id'
 gem 'faker'
+gem 'rails_12factor'
 
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc, require: false

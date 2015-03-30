@@ -36,6 +36,7 @@ class PlayersController < ApplicationController
 
   def show
     @player = Player.friendly.find(params[:id])
+    chances_to_win(@player)
   end
 
   def name_exist?(last, first)
