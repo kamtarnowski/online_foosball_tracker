@@ -1,28 +1,11 @@
-== README
+# Online Foosball Tracker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+The following game will change your entire life. You play the role of a player who may soon become the best football player of all time!
 
-Things you may want to cover:
+Some reviews:
 
-* Ruby version
+"The Best Game ever! It is better than my favorite The Witcher 3" - Barack Obama
 
-* System dependencies
+"I hate it! This game requires thinking!" - Justin Bieber
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+LIVE DEMO: [https://fast-hollows-2837.herokuapp.com](*https://fast-hollows-2837.herokuapp.com*)

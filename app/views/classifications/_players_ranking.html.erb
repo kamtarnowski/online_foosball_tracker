@@ -25,5 +25,7 @@
    </tr>
 </table>
 
+<div>
 <%= link_to 'Create a New Match <i class="fa fa-futbol-o"></i>'.html_safe, matches_new_path, class: "btn btn-primary", style: "margin-bottom: 20px" if Player.count >= 2 %>
 <%= link_to 'Players list <i class="fa fa-users"></i>'.html_safe, players_path, class: "btn btn-primary", style: "margin-bottom: 20px; float: right" %>
+</div>

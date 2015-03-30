@@ -16,9 +16,11 @@
 
 <% end %>
 
+<div>
 <%= link_to "Create a New Player <i class='fa fa-user-plus'></i>".html_safe, new_player_path, class: "btn btn-primary btn-large", style: "margin-bottom: 20px" %>
 <%= link_to 'Create a New Match <i class="fa fa-futbol-o"></i>'.html_safe, matches_new_path, class: "btn btn-primary btn-large", style: "margin-bottom: 20px" if Player.count >= 2 %>
 <%= link_to "Players ranking <i class='fa fa-bar-chart'></i>".html_safe, classifications_index_path, class: 'btn btn-large btn-primary', style: 'margin-bottom: 20px; float: right' %>
+</div>
 
 <script>
     $(".links table tr td:first-child a").onclick = function (event) {
