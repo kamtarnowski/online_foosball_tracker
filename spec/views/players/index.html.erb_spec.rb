@@ -34,7 +34,7 @@ RSpec.describe "players/index.html.erb", type: :view do
 
     let!(:player) { FactoryGirl.create(:player) }
 
-    it 'should render only two table rows ("th" + 6x"td")' do
+    it 'should render table rows ("th" + 6x"td")' do
       @players = Player.order(:created_at => :desc).page(params[:page]).per(20)
       render
       expect(rendered).to have_selector('tr', count: 7)

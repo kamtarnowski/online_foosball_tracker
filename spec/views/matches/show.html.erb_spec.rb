@@ -16,9 +16,9 @@ RSpec.describe "matches/show.html.erb", type: :view do
 
     render
     expect(rendered).to have_content player.name
-    expect(rendered).to have_content match_results.points
+    expect(rendered).to have_content match_result.points
     expect(rendered).to have_content player2.name
-    expect(rendered).to have_content match_results2.points
+    expect(rendered).to have_content match_result2.points
     expect(rendered).to have_content match.created_at.strftime("%d %b. %Y")
 
     expect(rendered).to have_link 'PLAYERS RANKING', classifications_index_path

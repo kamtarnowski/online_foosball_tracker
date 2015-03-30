@@ -35,7 +35,7 @@ RSpec.describe MatchesController, type: :controller do
     context 'valid form' do
       it 'redirects to match_results & flash :success' do
         post :create, match: match
-        expect(response).to redirect_to match_results_path
+        expect(response).to redirect_to show_match_path(Match.last)
         flash[:success] == (/^Match result./)
       end
     end

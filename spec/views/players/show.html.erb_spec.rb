@@ -13,14 +13,17 @@ RSpec.describe "players/show.html.erb", type: :view do
 
   it "should contain player's data" do
     @player = Player.find(player.id)
-    player_points = player.match_results.select(:points).reduce(:+)
+    player_points = @player.match_results.select(:points).map(&:points).reduce(:+)
     amount_of_match_results = player.match_results.count
+
+    chances_to_win(@player)
+
     render
     expect(rendered).to have_content player.name
     expect(rendered).to have_content player.chances
     expect(rendered).to have_content player.place
     expect(rendered).to have_content player_points
-    expect(rendered).to have_content (player_points / amount_of_match_results).round(3)
+    expect(rendered).to have_content (player_points / amount_of_match_results)
 
     expect(rendered).to have_selector('img', player.avatar.url(:medium))
 
