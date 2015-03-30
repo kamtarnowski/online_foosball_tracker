@@ -29,14 +29,14 @@ module PlayersHelper
       end
 
       time = Time.now
-      if time.friday? || time.saturday? || time.sunday? # Due to the fact that on weekends, the player focuses the mind on everything, just not on the game :)
+      unless time.friday? || time.saturday? || time.sunday? # Due to the fact that on weekends, the player focuses the mind on everything, just not on the game :)
         chances += 10
       end
 
     else
 
       time = Time.now
-      if time.friday? || time.saturday? || time.sunday? # Due to the fact that on weekends, the player focuses the mind on everything, just not on the game :)
+      unless time.friday? || time.saturday? || time.sunday? # Due to the fact that on weekends, the player focuses the mind on everything, just not on the game :)
         chances += 10
       end
     end
