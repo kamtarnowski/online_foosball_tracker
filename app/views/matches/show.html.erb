@@ -23,7 +23,7 @@
        </div>
 
             <div class="hidden-sm hidden-md hidden-lg">
-              <% @match.match_results.each_with_index do |mr, index| %>
+              <% @match.match_results.order(points: :desc).each_with_index do |mr, index| %>
                   <% if index == 0 %>
                       <div class="row" style="padding-top: 50px; padding-bottom: 10px; text-align: center;">
                         <em><span class="p_name_xs"><%= Player.find(mr.player_id).name %></span></em> <strong><span class="p_points_xs"><%= mr.points %></span></strong>
